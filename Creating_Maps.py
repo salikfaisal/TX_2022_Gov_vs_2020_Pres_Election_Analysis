@@ -5,7 +5,7 @@ import geopandas as gpd
 import folium
 
 # imports shapefile of Texas Precincts
-tx_gdf = gpd.read_file("VTDs_22G.shp", encoding="utf-8")
+tx_gdf = gpd.read_file("TX_Precincts_Shapefile//VTDs_22G.shp", encoding="utf-8")
 
 # imports precinct level dataset
 tx_df = pd.read_csv("Texas_Precinct_Election_Data.csv")
@@ -89,9 +89,10 @@ for idx, row in tx_df.iterrows():
     dem_vote_margin_change = (row["O_Rourke_2022_Votes"] - row["Abbott_2022_Votes"]) - 8106768 / 11317052 * \
                              (row["Biden_2020_Votes"] - row["Trump_2020_Votes"])
     if dem_vote_margin_change != 0:
+        popup_text = "Adjusted Dem Vote Gain: " + str(round(dem_vote_margin_change))
         folium.CircleMarker(
             location=[lat, long], radius=radius_value(dem_vote_margin_change),
-            popup=("Adjusted Dem Vote Gain: ", str(round(dem_vote_margin_change))),
+            popup=popup_text,
             color=color_producer(dem_vote_margin_change), fill=True).add_to(map_3)
 
 
