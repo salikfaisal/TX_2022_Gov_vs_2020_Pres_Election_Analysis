@@ -1,5 +1,6 @@
 import math
 import numpy as np
+import time
 import pandas as pd
 import geopandas as gpd
 import folium
@@ -10,7 +11,7 @@ tx_gdf = gpd.read_file("TX_Precincts_Shapefile//VTDs_22G.shp", encoding="utf-8")
 # imports precinct level dataset
 tx_df = pd.read_csv("Texas_Precinct_Election_Data.csv")
 
-# changes crs and finds the geographic center of the precinct
+# changes crs and finds the geographic center and area of the precinct
 tx_gdf = tx_gdf.to_crs(epsg=4326)
 tx_gdf["Center"] = tx_gdf.to_crs('+proj=cea').centroid.to_crs(epsg=4326)
 tx_gdf["Lat_C"] = tx_gdf["Center"].map(lambda p: p.y)
@@ -97,6 +98,7 @@ for idx, row in tx_df.iterrows():
 
 
 print('Finished Map 3')
+
 
 # Saves the Maps to html
 map_1.save("Map_1.html")

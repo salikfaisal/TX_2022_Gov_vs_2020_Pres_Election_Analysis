@@ -1,8 +1,25 @@
-import pandas as pd
 import time
+import math
+import pandas as pd
+import geopandas as gpd
+from uszipcode import SearchEngine
+
+# for time-keeping purposes
+start_time = time.time()
+
+# initialize SearchEngine
+search = SearchEngine()
 
 # imports list of Texas Precincts
 tx_precincts = pd.read_csv("List_of_Precincts_in_Texas.csv")
+
+# imports shapefile of Texas Precincts and changes crs
+tx_precincts_gdf = gpd.read_file("TX_Precincts_Shapefile//VTDs_22G.shp", encoding="utf-8")
+tx_precincts_gdf = tx_precincts_gdf.to_crs(epsg=4326)
+
+# imports shapefile of Texas ZIP Codes and changes crs
+zip_codes_gdf = gpd.read_file("US_ZIP_Codes_Shapefile//tl_2019_us_zcta510.shp", encoding="utf-8")
+zip_codes_gdf = zip_codes_gdf.to_crs(epsg=4326)
 
 # imports 2020 and 2022 Election Results
 results_2020 = pd.read_csv("2020_General_Election_Returns.csv")
@@ -15,13 +32,28 @@ tx_pop_data = pd.read_csv("VTDs_22G_Pop.csv")
 tx_county_data = pd.read_csv("TX_Counties.csv")
 tx_county_data = tx_county_data.set_index("County")
 
+end_time = time.time()
+time_so_far = (end_time - start_time) / 60
+print("Files Read in", round(time_so_far, 2), "minutes")
+
 # filters election results for only President in 2020 and Governor in 2022
 pres_2020_results = results_2020[results_2020["Office"] == 'President']
 gov_2022_results = results_2022[results_2022["Office"] == 'Governor']
 
 # capitalizes precincts with letters
-pres_2020_results.loc[:, "cntyvtd"] = pres_2020_results["cntyvtd"].map(lambda p: p.upper())
-gov_2022_results.loc[:, "cntyvtd"] = gov_2022_results["cntyvtd"].map(lambda p: p.upper())
+pres_2020_results['cntyvtd'] = pres_2020_results["cntyvtd"].map(lambda p: p.upper())
+gov_2022_results['cntyvtd'] = gov_2022_results["cntyvtd"].map(lambda p: p.upper())
+
+# finds the geographic center and area of the precinct
+tx_precinct_centers_gdf = gpd.GeoDataFrame()
+tx_precinct_centers_gdf['CNTYVTD'] = tx_precincts_gdf['CNTYVTD']
+tx_precinct_centers_gdf['geometry'] = tx_precincts_gdf.to_crs('+proj=cea').centroid.to_crs(epsg=4326)
+tx_precincts["Lat_C"] = tx_precinct_centers_gdf['geometry'].map(lambda p: p.y)
+tx_precincts["Long_C"] = tx_precinct_centers_gdf['geometry'].map(lambda p: p.x)
+tx_precincts_with_zip_codes = gpd.sjoin(tx_precinct_centers_gdf, zip_codes_gdf[['ZCTA5CE10', 'geometry']], how="inner",
+                                        predicate="within")
+tx_precincts['ZIP_Code'] = tx_precinct_centers_gdf.merge(tx_precincts_with_zip_codes, how='left')['ZCTA5CE10']
+tx_precincts['ZIP_Code'] = tx_precincts['ZIP_Code'].astype(float)
 
 # Lists to add to dataframe
 county_region = []
@@ -108,7 +140,20 @@ tx_precincts["Dem_Raw_Vote_Margin_Gain"] = tx_precincts["Dem_Raw_Vote_Gain"] - t
 tx_precincts["Change_in_Turnout"] = (tx_precincts["Total_Votes_2022_Gov"] / tx_precincts["Total_Votes_2020_Pres"] - 1)\
                                     * 100
 
+def zip_code_finder(row):
+    # if the precinct does not have a ZIP Code from the shapefile or is assigned one outside of Texas, this fixes that
+    if math.isnan(row['ZIP_Code']) or not 75000 < row['ZIP_Code'] < 80000:
+        lat = row['Lat_C']
+        long = row['Long_C']
+        zip_codes_within_50_mi = search.by_coordinates(lat, long, 50)
+        for zip_code in zip_codes_within_50_mi:
+            zip_code_dict = zip_code.to_dict()
+            if zip_code_dict['state'] == 'TX':
+                row['ZIP_Code'] = zip_code_dict['zipcode']
+                break
+    return row
 
+tx_precincts = tx_precincts.apply(zip_code_finder, axis='columns')
 
 # exports DataFrame to a csv file
 tx_precincts.to_csv("Texas_Precinct_Election_Data.csv", index=False, header=True)

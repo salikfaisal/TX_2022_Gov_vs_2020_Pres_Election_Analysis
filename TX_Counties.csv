@@ -3,8 +3,8 @@ Anderson,NA,0,Central East
 Andrews,NA,0,Northwest
 Angelina,NA,0,Central East
 Aransas,NA,0,South
-Archer,NA,0,North Central
-Armstrong,NA,0,Panhandle
+Archer,Wichita Falls,0,North Central
+Armstrong,Amarillo,0,Panhandle
 Atascosa,San Antonio,0,South
 Austin,Houston,0,Central East
 Bailey,NA,0,Northwest
@@ -12,32 +12,32 @@ Bandera,San Antonio,0,Central West
 Bastrop,Austin,0,Central
 Baylor,NA,0,North Central
 Bee,NA,0,South
-Bell,NA,0,Central
+Bell,Killeen-Temple,0,Central
 Bexar,San Antonio,0,Central
 Blanco,NA,0,Central
 Borden,NA,0,Northwest
 Bosque,NA,0,Central
-Bowie,NA,0,Northeast
+Bowie,Texarkana,0,Northeast
 Brazoria,Houston,0,Central East
-Brazos,NA,0,Central
+Brazos,College Station-Bryan,0,Central
 Brewster,NA,1,West
 Briscoe,NA,0,Panhandle
 Brooks,NA,1,South
 Brown,NA,0,Central West
-Burleson,NA,0,Central
+Burleson,College Station-Bryan,0,Central
 Burnet,NA,0,Central
 Caldwell,Austin,0,Central
 Calhoun,NA,0,South
-Callahan,NA,0,North Central
-Cameron,NA,1,South
+Callahan,Abilene,0,North Central
+Cameron,Brownsville,1,South
 Camp,NA,0,Northeast
-Carson,NA,0,Panhandle
+Carson,Amarillo,0,Panhandle
 Cass,NA,0,Northeast
 Castro,NA,0,Panhandle
 Chambers,Houston,0,Central East
 Cherokee,NA,0,Central East
 Childress,NA,0,Panhandle
-Clay,NA,0,North Central
+Clay,Wichita Falls,0,North Central
 Cochran,NA,0,Northwest
 Coke,NA,0,Central West
 Coleman,NA,0,Central West
@@ -48,11 +48,11 @@ Comal,San Antonio,0,Central
 Comanche,NA,0,Central
 Concho,NA,0,Central West
 Cooke,NA,0,North Central
-Coryell,NA,0,Central
+Coryell,Killeen-Temple,0,Central
 Cottle,NA,0,Northwest
 Crane,NA,0,West
 Crockett,NA,1,Central West
-Crosby,NA,0,Northwest
+Crosby,Lubbock,0,Northwest
 Culberson,NA,1,West
 Dallam,NA,0,Panhandle
 Dallas,Dallas-Fort Worth,0,Northeast
@@ -66,12 +66,12 @@ Dimmit,NA,1,South
 Donley,NA,0,Panhandle
 Duval,NA,1,South
 Eastland,NA,0,North Central
-Ector,NA,0,West
+Ector,Odessa,0,West
 Edwards,NA,1,Central West
 Ellis,Dallas-Fort Worth,0,Northeast
 El Paso,El Paso,1,West
 Erath,NA,0,North Central
-Falls,NA,0,Central
+Falls,Waco,0,Central
 Fannin,NA,0,Northeast
 Fayette,NA,0,Central
 Fisher,NA,0,Northwest
@@ -86,11 +86,11 @@ Galveston,Houston,0,Central East
 Garza,NA,0,Northwest
 Gillespie,NA,0,Central West
 Glasscock,NA,0,Central West
-Goliad,NA,0,South
+Goliad,Victoria,0,South
 Gonzales,NA,0,Central
 Gray,NA,0,Panhandle
-Grayson,NA,0,Northeast
-Gregg,NA,0,Northeast
+Grayson,Sherman-Denison,0,Northeast
+Gregg,Longview,0,Northeast
 Grimes,NA,0,Central East
 Guadalupe,San Antonio,0,Central
 Hale,NA,0,Northwest
@@ -98,9 +98,9 @@ Hall,NA,0,Panhandle
 Hamilton,NA,0,Central
 Hansford,NA,0,Panhandle
 Hardeman,NA,0,North Central
-Hardin,NA,0,Central East
+Hardin,Beaumont,0,Central East
 Harris,Houston,0,Central East
-Harrison,NA,0,Northeast
+Harrison,Longview,0,Northeast
 Hartley,NA,0,Panhandle
 Haskell,NA,0,North Central
 Hays,Austin,0,Central
@@ -116,16 +116,16 @@ Howard,NA,0,Northwest
 Hudspeth,El Paso,1,West
 Hunt,Dallas-Fort Worth,0,Northeast
 Hutchinson,NA,0,Panhandle
-Irion,NA,0,Central West
+Irion,San Angelo,0,Central West
 Jack,NA,0,North Central
 Jackson,NA,0,South
 Jasper,NA,0,Central East
 Jeff Davis,NA,1,West
-Jefferson,NA,0,Central East
+Jefferson,Beaumont,0,Central East
 Jim Hogg,NA,1,South
 Jim Wells,NA,0,South
 Johnson,Dallas-Fort Worth,0,North Central
-Jones,NA,0,North Central
+Jones,Abilene,0,North Central
 Karnes,NA,0,South
 Kaufman,Dallas-Fort Worth,0,Northeast
 Kendall,San Antonio,0,Central
@@ -139,7 +139,7 @@ Kleberg,NA,0,South
 Knox,NA,0,North Central
 Lamar,NA,0,Northeast
 Lamb,NA,0,Northwest
-Lampasas,NA,0,Central
+Lampasas,Killeen-Temple,0,Central
 La Salle,NA,1,South
 Lavaca,NA,0,Central
 Lee,NA,0,Central
@@ -150,20 +150,20 @@ Lipscomb,NA,0,Panhandle
 Live Oak,NA,0,South
 Llano,NA,0,Central
 Loving,NA,0,West
-Lubbock,NA,0,Northwest
-Lynn,NA,0,Northwest
+Lubbock,Lubbock,0,Northwest
+Lynn,Lubbock,0,Northwest
 McCulloch,NA,0,Central West
-McLennan,NA,0,Central
+McLennan,Waco,0,Central
 McMullen,NA,1,South
 Madison,NA,0,Central East
 Marion,NA,0,Northeast
-Martin,NA,0,Northwest
+Martin,Midland,0,Northwest
 Mason,NA,0,Central West
 Matagorda,NA,0,Central East
 Maverick,NA,1,South
 Medina,San Antonio,0,Central West
 Menard,NA,0,Central West
-Midland,NA,0,West
+Midland,Midland,0,West
 Milam,NA,0,Central
 Mills,NA,0,Central
 Mitchell,NA,0,Northwest
@@ -176,72 +176,72 @@ Nacogdoches,NA,0,Central East
 Navarro,NA,0,Northeast
 Newton,NA,0,Central East
 Nolan,NA,0,Northwest
-Nueces,NA,0,South
+Nueces,Corpus Christi,0,South
 Ochiltree,NA,0,Panhandle
-Oldham,NA,0,Panhandle
-Orange,NA,0,Central East
+Oldham,Amarillo,0,Panhandle
+Orange,Beaumont,0,Central East
 Palo Pinto,NA,0,North Central
 Panola,NA,0,Northeast
 Parker,Dallas-Fort Worth,0,North Central
 Parmer,NA,0,Panhandle
 Pecos,NA,1,West
 Polk,NA,0,Central East
-Potter,NA,0,Panhandle
+Potter,Amarillo,0,Panhandle
 Presidio,NA,1,West
 Rains,NA,0,Northeast
-Randall,NA,0,Panhandle
+Randall,Amarillo,0,Panhandle
 Reagan,NA,0,Central West
 Real,NA,1,Central West
 Red River,NA,0,Northeast
 Reeves,NA,1,West
 Refugio,NA,0,South
 Roberts,NA,0,Panhandle
-Robertson,NA,0,Central
+Robertson,College Station-Bryan,0,Central
 Rockwall,Dallas-Fort Worth,0,Northeast
 Runnels,NA,0,Central West
-Rusk,NA,0,Northeast
+Rusk,Longview,0,Northeast
 Sabine,NA,0,Central East
 San Augustine,NA,0,Central East
 San Jacinto,NA,0,Central East
-San Patricio,NA,0,South
+San Patricio,Corpus Christi,0,South
 San Saba,NA,0,Central
 Schleicher,NA,0,Central West
 Scurry,NA,0,Northwest
 Shackelford,NA,0,North Central
 Shelby,NA,0,Central East
 Sherman,NA,0,Panhandle
-Smith,NA,0,Northeast
+Smith,Tyler,0,Northeast
 Somervell,NA,0,North Central
 Starr,NA,1,South
 Stephens,NA,0,North Central
-Sterling,NA,0,Central West
+Sterling,San Angelo,0,Central West
 Stonewall,NA,0,Northwest
 Sutton,NA,1,Central West
 Swisher,NA,0,Panhandle
 Tarrant,Dallas-Fort Worth,0,North Central
-Taylor,NA,0,North Central
+Taylor,Abilene,0,North Central
 Terrell,NA,1,West
 Terry,NA,0,Northwest
 Throckmorton,NA,0,North Central
 Titus,NA,0,Northeast
-Tom Green,NA,0,Central West
+Tom Green,San Angelo,0,Central West
 Travis,Austin,0,Central
 Trinity,NA,0,Central East
 Tyler,NA,0,Central East
-Upshur,NA,0,Northeast
+Upshur,Longview,0,Northeast
 Upton,NA,0,West
 Uvalde,NA,1,Central West
 Val Verde,NA,1,Central West
 Van Zandt,NA,0,Northeast
-Victoria,NA,0,South
+Victoria,Victoria,0,South
 Walker,NA,0,Central East
 Waller,Houston,0,Central East
 Ward,NA,0,West
 Washington,NA,0,Central
-Webb,NA,1,South
+Webb,Laredo,1,South
 Wharton,NA,0,Central East
 Wheeler,NA,0,Panhandle
-Wichita,NA,0,North Central
+Wichita,Wichita Falls,0,North Central
 Wilbarger,NA,0,North Central
 Willacy,NA,1,South
 Williamson,Austin,0,Central
